@@ -1,12 +1,18 @@
 import csv
 import server as server
+import utils
 
-with open('../arquivos/milho_usd.csv', 'r') as arquivo_csv:
-    leitor = csv.reader(arquivo_csv, delimiter = ',')
-    for idx, coluna in enumerate(leitor):
+with open('../files/milho_usd.csv', 'r') as arquivo_csv:
+    reader = csv.reader(arquivo_csv, delimiter = ',')
+    for idx, colunm in enumerate(reader):
         if idx > 1:
+
+            date = colunm[0].replace(',','')
+            date = date.split(' ')
+            date = utils.format_number(date[1], 2) + '.' + utils.format_number(str(utils.mounth_numeric.get(date[0])), 2) + '.' + date[2]
+
             collection = 'milho_usd'
             keys = ['date', 'value']
-            values = [coluna[0], coluna[1]]
+            values = [date, colunm[1]]
             if server.db_select(collection, keys, values) == None:
                 server.db_insert(collection, keys, values)

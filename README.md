@@ -1,1 +1,1 @@
-# Scripts para data lake para pesquisa
+# Scripts de import para database
