@@ -21,3 +21,5 @@ mounth_numeric = {
     "Nov": 11,
     "Dec": 12
 }
+
+scripts_names = ["corn_br.py", "corn_usd.py", "crops_data.py", "dolar.py"]
