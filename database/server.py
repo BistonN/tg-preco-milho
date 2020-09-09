@@ -27,8 +27,8 @@ def db_select(_collection, _keys=[], _values=[]):
     results = collection.find_one(obj)
     return results
 
-def start_scripts():
-    for script_name in utils.scripts_names:
-        os.system('python {}'.format(script_name))
+# def start_scripts():
+#     for script_name in utils.scripts_names:
+#         os.system('python {}'.format(script_name))
 
-start_scripts()
+# start_scripts()
