@@ -27,6 +27,12 @@ def db_select(_collection, _keys=[], _values=[]):
     results = collection.find_one(obj)
     return results
 
+def db_update(_collection, _select={}, _new_data={}):
+    collection = db[_collection]
+    new_data_obj = {"$set": _new_data}
+    collection.update_one(_select, new_data_obj)
+    print('updated: ', _select, _new_data) 
+
 # def start_scripts():
 #     for script_name in utils.scripts_names:
 #         os.system('python {}'.format(script_name))
