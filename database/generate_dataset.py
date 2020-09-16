@@ -15,6 +15,7 @@ query = {
 
 writer.writerow(["date", "corn_usd", "br_production", "br_plateau_area", "br_productivity", "dolar", "corn_br_-1", "corn_br"])
 corn_one_day_before = 0
+
 for item in server.db_select('historical_data', _query= query):
     date = item.get('date')
     corn_br = item.get('corn_br')
@@ -30,6 +31,8 @@ for item in server.db_select('historical_data', _query= query):
 
         for i in server.db_select('historical_data', _query={"date": date_corn_one_day_before}):
             if i.get('corn_br'): 
+                if corn_one_day_before == 0:
+                    corn_one_day_before = corn_br
                 corn_one_day_before = i.get('corn_br')            
         
         writer.writerow([date, corn_usd, br_production, br_plateau_area, br_productivity, dolar, corn_one_day_before, corn_br])
