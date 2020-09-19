@@ -1,4 +1,4 @@
-# date corn_usd br_production br_productivitybr_plateau_area corn_one_day_before corn_br 
+# date corn_usd corn_week_day_before corn_br 
 
 import server as server
 import datetime as dt
@@ -22,12 +22,9 @@ for item in server.db_select('historical_data', _query= query):
     date = item.get('date')
     corn_br = item.get('corn_br')
     corn_usd = item.get('corn_usd')
-    br_production = item.get('br_production')
-    br_plateau_area = item.get('br_plateau_area')
-    br_productivity = item.get('br_productivity')
     dolar = item.get('dolar')
 
-    if corn_br and corn_usd and br_production and br_plateau_area and br_productivity and dolar:
+    if corn_br and corn_usd and dolar:
         
         date_corn_one_day_before = date - timedelta(days=1)
 
@@ -37,12 +34,9 @@ for item in server.db_select('historical_data', _query= query):
                     corn_one_day_before = corn_br
                 corn_one_day_before = i.get('corn_br')            
         
-        writer.writerow([date, corn_usd, br_production, br_plateau_area, br_productivity, dolar, corn_one_day_before, corn_br])
+        writer.writerow([date, corn_usd, dolar, corn_one_day_before, corn_br])
 
         print('date: ', date)
         print('corn_usd: ',corn_usd)
-        print('br_production: ', br_production)
-        print('br_productivity', br_productivity)
-        print('br_plateau_area: ', br_plateau_area)
         print('corn_one_day_before: ', corn_one_day_before)
         print('corn_br: ', corn_br, '\n')
