@@ -13,6 +13,8 @@ def format_number(_number:str, _characters:int):
         i = i + 1
 
 def string_to_float(_str):
+    if _str == '-':
+        return float(0)
     _str = _str.replace(',', '.')
     return float(_str)
 
