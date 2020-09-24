@@ -6,16 +6,16 @@ import utils
 with open('../files/dados_safra_milho_conab.csv', 'r') as arquivo_csv:
     reader = csv.reader(arquivo_csv, delimiter = ',')
     year = 2013
-    mounth = 1
+    month = 1
 
     collection = 'historical_data'
 
     for colunm in reader:    
         if year < 2021: 
-            for week in calendar.monthcalendar(year, mounth):
+            for week in calendar.monthcalendar(year, month):
                 for day in week:
                     if day != 0:   
-                        date = utils.format_number(day, 2) + '.' + utils.format_number(mounth, 2) + '.' + str(year)
+                        date = utils.format_number(day, 2) + '.' + utils.format_number(month, 2) + '.' + str(year)
                         date = utils.string_to_date(date) 
                         if server.db_select(collection, ['date'], [date]) == None:
                             server.db_insert(collection, ['date', 'br_production'], [date, utils.string_to_float(colunm[1])])
@@ -32,12 +32,12 @@ with open('../files/dados_safra_milho_conab.csv', 'r') as arquivo_csv:
                         else:
                             server.db_update(collection, {"date": date}, {'br_productivity': utils.string_to_float(colunm[3])})
                         
-            if mounth + 1 == 13:
-                mounth = 1
+            if month + 1 == 13:
+                month = 1
                 year = year + 1
             else:
-                mounth = mounth + 1
+                month = month + 1
         else: 
-            if mounth <= 8:
+            if month <= 8:
                 break
             
