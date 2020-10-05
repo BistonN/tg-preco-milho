@@ -8,7 +8,7 @@ with open('../files/dados_safra_milho_conab.csv', 'r') as arquivo_csv:
     year = 2013
     month = 1
 
-    collection = 'historical_data'
+    collection = 'historical_data_daily'
 
     for colunm in reader:    
         if year < 2021: 

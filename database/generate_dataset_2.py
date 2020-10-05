@@ -1,4 +1,4 @@
-# date corn_usd br_production br_productivitybr_plateau_area corn_one_day_before corn_br 
+# 'date', 'corn_br', 'corn_usd', 'dolar', 'corn_br-1', 'corn_br-2', 'corn_br-3', 'max_corn_br-1', 'min_corn_br-1', 'open_corn_br-1', 'var_corn_br-1', 'vol_corn_br-1' 
 
 import server as server
 import datetime as dt
@@ -35,7 +35,7 @@ while year <= 2019 and month <= 12:
     for *week, _, _ in calendar.monthcalendar(year, month):
         for day in week:
             if day != 0:
-                results = server.db_select('historical_data', ['date'], [dt.datetime(year, month, day)])
+                results = server.db_select('historical_data_daily', ['date'], [dt.datetime(year, month, day)])
                 
                 if results.get('corn_br'):
                     copy_results = results.copy()
