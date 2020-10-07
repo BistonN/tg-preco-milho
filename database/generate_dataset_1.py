@@ -5,7 +5,7 @@ import datetime as dt
 from datetime import timedelta
 import csv
 
-writer = csv.writer(open("../files/dataset.csv", 'w'))
+writer = csv.writer(open("../files/dataset_1.csv", 'w'))
 
 query = {
     "$and": [
