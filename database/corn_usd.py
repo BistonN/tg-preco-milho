@@ -34,5 +34,5 @@ with open('../files/milho_usd.csv', 'r') as arquivo_csv:
                 server.db_insert(collection, keys, values)
             else:
                 for i, *_ in enumerate(colunm):
-                    if i > 1:
+                    if i >= 1:
                         server.db_update(collection, {keys[0]: values[0]}, {keys[i]: values[i]})

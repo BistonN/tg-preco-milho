@@ -20,7 +20,7 @@ with open('../files/milho_br_semanal.csv', 'r') as arquivo_csv:
                 server.db_insert(collection, keys, values)
             else:
                 for i, *_ in enumerate(colunm):
-                    if i > 1:
+                    if i >= 1:
                         server.db_update(collection, {keys[0]: values[0]}, {keys[i]: values[i]})
 
 print('\n\nImportando dados Diarios do Preço do Milho\n\n')
@@ -38,5 +38,5 @@ with open('../files/milho_br.csv', 'r') as arquivo_csv:
                 server.db_insert(collection, keys, values)
             else:
                 for i, *_ in enumerate(colunm):
-                    if i > 1:
+                    if i >= 1:
                         server.db_update(collection, {keys[0]: values[0]}, {keys[i]: values[i]})

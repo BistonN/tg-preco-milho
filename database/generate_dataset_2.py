@@ -25,7 +25,7 @@ writer = csv.writer(open("../files/dataset_2.csv", 'w'))
 
 writer.writerow(['date', 'corn_br', 'corn_usd', 'dolar', 'corn_br-1', 'corn_br-2', 'corn_br-3', 'max_corn_br-1', 'min_corn_br-1', 'open_corn_br-1', 'var_corn_br-1', 'vol_corn_br-1']) 
 
-year = 2012
+year = 2011
 month = 1
 
 corn_br_days_before = [{}, {}, {}]
