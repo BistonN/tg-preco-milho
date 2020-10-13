@@ -21,11 +21,11 @@ def get_last_not_null_value(key, corn_1_before, corn_2_before, corn_3_before):
     return results
 
 
-writer = csv.writer(open("../files/dataset_3.csv", 'w'))
+writer = csv.writer(open("../files/dataset_2.csv", 'w'))
 
 writer.writerow(['date', 'corn_br', 'corn_usd', 'dolar', 'corn_br-1', 'corn_br-2', 'corn_br-3', 'max_corn_br-1', 'min_corn_br-1', 'open_corn_br-1', 'var_corn_br-1', 'vol_corn_br-1']) 
 
-year = 2013
+year = 2012
 month = 1
 
 corn_br_days_before = [{}, {}, {}]
@@ -42,8 +42,8 @@ while year <= 2019 and month <= 12:
                     corn_br_days_before.append(copy_results)
 
                     corn_3_before = corn_br_days_before.pop(0)
-                    corn_2_before = corn_br_days_before[-2]
-                    corn_1_before = corn_br_days_before[-3]
+                    corn_2_before = corn_br_days_before[-3]
+                    corn_1_before = corn_br_days_before[-2]
 
 
 
