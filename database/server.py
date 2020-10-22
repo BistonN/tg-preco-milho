@@ -2,9 +2,9 @@ from pymongo import MongoClient
 import os
 import utils
 
-client = MongoClient('localhost', 27017)
-db = client['tg_bdag']
-# db = client['prod_tg_bdag']
+client = MongoClient('localhost', 17017)
+# db = client['tg_bdag']
+db = client['prod_tg_bdag']
 
 def db_insert(_collection, _keys=[], _values=[]):
     collection = db[_collection]
