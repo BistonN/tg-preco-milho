@@ -29,9 +29,8 @@ year = 2011
 month = 1
 
 corn_br_days_before = [{}, {}, {}]
-print(corn_br_days_before )
 
-while year <= 2019 and month <= 12:
+while year <= 2018 and month <= 12:
     for *week, _, _ in calendar.monthcalendar(year, month):
         for day in week:
             if day != 0:
@@ -45,18 +44,18 @@ while year <= 2019 and month <= 12:
                     corn_2_before = corn_br_days_before[-3]
                     corn_1_before = corn_br_days_before[-2]
 
-
-
                     max_corn_br_1_before = get_last_not_null_value('max_corn_br', corn_1_before, corn_2_before, corn_3_before)
                     min_corn_br_1_before = get_last_not_null_value('min_corn_br', corn_1_before, corn_2_before, corn_3_before)
                     open_corn_br_1_before = get_last_not_null_value('open_corn_br', corn_1_before, corn_2_before, corn_3_before)
                     var_corn_br_1_before = get_last_not_null_value('var_corn_br', corn_1_before, corn_2_before, corn_3_before)
                     vol_corn_br_1_before = get_last_not_null_value('vol_corn_br', corn_1_before, corn_2_before, corn_3_before)
+                    corn_usd_1_before = get_last_not_null_value('corn_usd', corn_1_before, corn_2_before, corn_3_before)
+                    dolar_1_before = get_last_not_null_value('dolar', corn_1_before, corn_2_before, corn_3_before)
                     br_production_1_before = get_last_not_null_value('br_production', corn_1_before, corn_2_before, corn_3_before)
                     br_plateau_area_1_before = get_last_not_null_value('br_plateau_area', corn_1_before, corn_2_before, corn_3_before)
                     br_productivity_1_before = get_last_not_null_value('br_productivity', corn_1_before, corn_2_before, corn_3_before)
 
-                    writer.writerow([results.get('date'), results.get('corn_br'), results.get('corn_usd'), results.get('dolar'), corn_1_before.get('corn_br'), corn_2_before.get('corn_br'), corn_3_before.get('corn_br'), max_corn_br_1_before, min_corn_br_1_before, open_corn_br_1_before, var_corn_br_1_before, vol_corn_br_1_before, br_production_1_before, br_plateau_area_1_before, br_productivity_1_before]) 
+                    writer.writerow([results.get('date'), results.get('corn_br'), corn_usd_1_before, dolar_1_before, corn_1_before.get('corn_br'), corn_2_before.get('corn_br'), corn_3_before.get('corn_br'), max_corn_br_1_before, min_corn_br_1_before, open_corn_br_1_before, var_corn_br_1_before, vol_corn_br_1_before, br_production_1_before, br_plateau_area_1_before, br_productivity_1_before]) 
                     print(results.get('date'))
     if month + 1 == 13:
         month = 1
